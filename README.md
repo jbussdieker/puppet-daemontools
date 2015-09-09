@@ -11,6 +11,9 @@ http://forge.puppetlabs.com/jbussdieker/daemontools
  * ensure: running, stopped. default: running
  * command: Command line to run service.
  * logpath: Directory to store log files in. default: /var/log/${name}
+ * service_script: Write your own service script if you need more control, if you use this it makes the command paramter obsolete.
+ * logfiles: The number of logfiles to keep
+ * logsize: The maximum size of one logfile
 
 ## Usage
 

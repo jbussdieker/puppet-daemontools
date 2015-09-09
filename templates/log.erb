@@ -1,2 +1,2 @@
 #!/bin/bash
-exec multilog t n100 s16777215 <%= @real_logpath %>
+exec multilog t n<%= @logfiles %> s<%= @logsize %> <%= @real_logpath %>

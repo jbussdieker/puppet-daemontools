@@ -1,4 +1,11 @@
-define daemontools::service($ensure="running", $logpath = '', $command) {
+define daemontools::service(
+	$ensure="running",
+	$logpath = '',
+	$service_script = '',
+	$command = '',
+	$logfiles = 100,
+	$logsize = 16777215,
+) {
 
   include daemontools
 
@@ -9,6 +16,12 @@ define daemontools::service($ensure="running", $logpath = '', $command) {
     $real_logpath = $logpath
   } else {
     $real_logpath = "/var/log/${name}"
+  }
+
+  if $service_script == '' {
+    $service_content = template('daemontools/service.erb')
+  } else {
+    $service_content = $service_script
   }
 
   file {$real_logpath:
@@ -51,7 +64,7 @@ define daemontools::service($ensure="running", $logpath = '', $command) {
   file {"/etc/${name}/run":
     ensure  => present,
     mode    => 0755,
-    content => template("daemontools/service.erb"),
+    content => $service_content,
     require => File["/etc/${name}"],
     notify  => Service[$name],
   }
