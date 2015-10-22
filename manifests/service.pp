@@ -55,7 +55,7 @@ define daemontools::service(
 
   file {"/etc/${name}/log/run":
     ensure  => present,
-    mode    => 0755,
+    mode    => '0755',
     content => template("daemontools/log.erb"),
     require => File["/etc/${name}/log"],
     notify  => Service[$name],
@@ -63,7 +63,7 @@ define daemontools::service(
 
   file {"/etc/${name}/run":
     ensure  => present,
-    mode    => 0755,
+    mode    => '0755',
     content => $service_content,
     require => File["/etc/${name}"],
     notify  => Service[$name],
