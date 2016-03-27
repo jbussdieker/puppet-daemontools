@@ -6,14 +6,6 @@ class daemontools::package {
 
   package {'daemontools-run':
     ensure  => present,
-    require => Package['daemontools'],
-    notify  => Exec['daemontools-start'],
+    require => Package['daemontools']
   }
-
-  exec {'daemontools-start':
-    command     => "/usr/bin/sudo bash -cf '/usr/bin/svscanboot &'",
-    refreshonly => true,
-    require     => Package['daemontools'],
-  }
-
 }

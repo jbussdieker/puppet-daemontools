@@ -1,10 +1,10 @@
 define daemontools::service(
-	$ensure="running",
-	$logpath = '',
-	$service_script = '',
-	$command = '',
-	$logfiles = 100,
-	$logsize = 16777215,
+  $ensure='running',
+  $logpath = '',
+  $service_script = '',
+  $command = '',
+  $logfiles = 100,
+  $logsize = 16777215,
 ) {
 
   include daemontools
@@ -55,15 +55,15 @@ define daemontools::service(
 
   file {"/etc/${name}/log/run":
     ensure  => present,
-    mode    => 0755,
-    content => template("daemontools/log.erb"),
+    mode    => '0755',
+    content => template('daemontools/log.erb'),
     require => File["/etc/${name}/log"],
     notify  => Service[$name],
   }
 
   file {"/etc/${name}/run":
     ensure  => present,
-    mode    => 0755,
+    mode    => '0755',
     content => $service_content,
     require => File["/etc/${name}"],
     notify  => Service[$name],
