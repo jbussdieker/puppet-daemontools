@@ -4,7 +4,7 @@
   "author": "Joshua B. Bussdieker",
   "summary": "Daemontools Module",
   "license": "Apache-2.0",
-  "source": "https://github.com/Ensighten/puppet-daemontools.git",
+  "source": "https://github.com/jbussdieker/puppet-daemontools.git",
   "dependencies": [],
   "operatingsystem_support": [
     {
