@@ -1,6 +1,6 @@
 {
   "name": "jbussdieker-daemontools",
-  "version": "0.2.0-ens",
+  "version": "0.1.4",
   "author": "Joshua B. Bussdieker",
   "summary": "Daemontools Module",
   "license": "Apache-2.0",
